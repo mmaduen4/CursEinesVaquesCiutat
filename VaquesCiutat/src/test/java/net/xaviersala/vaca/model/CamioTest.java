@@ -8,6 +8,11 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.Mockito;
 
+/**
+ * No s'ha fet TDD. S'ha utilitzat la classe Camio proporcionada.
+ * @author mmaduen4
+ *
+ */
 class CamioTest {
 
 //	@Test
