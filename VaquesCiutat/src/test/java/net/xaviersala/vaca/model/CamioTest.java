@@ -60,5 +60,32 @@ class CamioTest {
 		assertFalse(result);
 		assertEquals(pesActual, sut.getPesActual());
 	}
+	
+	static Stream<Arguments> createPesVaca() {
+		return Stream.of(Arguments.of(100), Arguments.of(200), Arguments.of(300));
+	}
+
+	@ParameterizedTest
+	@MethodSource("createPesVaca")
+	void testTreuVacaOK(double pesVaca) {
+
+		// ARRANGE
+		Camio sut = new Camio(1000);		
+		for (int i = 0; i < 10; i++) {
+			Vaca vacaFalsa = Mockito.mock(Vaca.class);
+			Mockito.when(vacaFalsa.getPes()).thenReturn(pesVaca);
+			sut.entraVaca(vacaFalsa);
+		}
+		double pesActual = sut.getPesActual();
+
+		// ACT + ASSERT
+		while (sut.getVaques().size() > 0) {
+			assertTrue(sut.treuVaca((sut.getVaques().get(0))));
+			assertEquals(pesActual - pesVaca, sut.getPesActual());
+			pesActual = sut.getPesActual();
+		}
+
+	}
+	
 
 }
