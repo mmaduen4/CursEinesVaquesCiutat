@@ -38,5 +38,27 @@ class CamioTest {
 		assertEquals(pesActual + pesVaca, sut.getPesActual());
 
 	}
+	
+	static Stream<Arguments> createPesMaxCamioPesVacaX() {
+		return Stream.of(Arguments.of(1000, 1001));
+	}
+
+	@ParameterizedTest
+	@MethodSource("createPesMaxCamioPesVacaX")
+	void testEntraVacaAmbPesSobreLimit(double pesMaxim, double pesVaca) {
+		// ARRANGE
+		Vaca vacaFalsa = Mockito.mock(Vaca.class);
+		Mockito.when(vacaFalsa.getPes()).thenReturn(pesVaca);
+
+		Camio sut = new Camio(pesMaxim);
+		double pesActual = sut.getPesActual();
+
+		// ACT
+		boolean result = sut.entraVaca(vacaFalsa);
+
+		// ASSERT
+		assertFalse(result);
+		assertEquals(pesActual, sut.getPesActual());
+	}
 
 }
