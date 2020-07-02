@@ -84,8 +84,31 @@ class CamioTest {
 			assertEquals(pesActual - pesVaca, sut.getPesActual());
 			pesActual = sut.getPesActual();
 		}
-
 	}
 	
+	static Stream<Arguments> createPesILitresVaca() {
+		return Stream.of(Arguments.of(100, 200), Arguments.of(100, 20), Arguments.of(100, 30));
+	}
 
+	@ParameterizedTest
+	@MethodSource("createPesILitresVaca")
+	void testLletQuePorta(double pesVaca, double litres) {
+		
+		// ARRANGE
+		Camio sut = new Camio(1000);	
+		//double litresInicial = sut.getLitres();	
+		for (int i = 0; i < 10; i++) {						
+			Vaca vacaFalsa = Mockito.mock(Vaca.class);
+			Mockito.when(vacaFalsa.getPes()).thenReturn(pesVaca);	
+			Mockito.when(vacaFalsa.getLitres()).thenReturn(litres);				
+			sut.entraVaca(vacaFalsa);
+		}
+		
+		// ACT		
+		double resultat = sut.getLitres();
+					
+		// ASSERT
+		assertEquals(sut.getVaques().size()*litres, resultat);
+		
+	}
 }
