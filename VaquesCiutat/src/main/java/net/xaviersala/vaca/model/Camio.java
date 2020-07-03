@@ -74,22 +74,5 @@ public class Camio {
 			parell=-1;
 		return parell;
 	}
-	
-	public int tresRacesDiferents()
-	{
-		// falta condició
-		if (true)
-			return 1;
-		return 0;
-	}
-	
-	public int dosVacaHoldstein()
-	{
-		// falta condició
-		boolean condition=true;
-		if (condition)
-			return 1;
-		return 0;
-	}
 
 }
