@@ -53,7 +53,7 @@ public class RacaTests {
 		String resultat = sut.getNom();
 
 		// ASSERT
-		assertEquals(Raca.desconeguda, resultat);
+		assertEquals(Raca.DESCONEGUDA, resultat);
 	}
 
 	@Test
@@ -65,7 +65,7 @@ public class RacaTests {
 		String resultat = sut.getNom();
 
 		// ASSERT
-		assertEquals(Raca.desconeguda, resultat);
+		assertEquals(Raca.DESCONEGUDA, resultat);
 	}
 
 	@ParameterizedTest
@@ -78,7 +78,7 @@ public class RacaTests {
 		String resultat = sut.getNom();
 
 		// ASSERT
-		assertEquals(Raca.desconeguda, resultat);
+		assertEquals(Raca.DESCONEGUDA, resultat);
 	}
 
 }
