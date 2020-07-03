@@ -34,10 +34,10 @@ class CiutatTest {
 		Ciutat ciutat =new Ciutat();
 		
 		// ACT
-		ciutat.arribaCamio(camioFals1);
+		double resultat = ciutat.getPreuPagarCamio(camioFals1);
 
 		// ASSERT
-		assertEquals(litresCamio*preuBaseLlet,ciutat.getPreuPagarCamio(camioFals1));
+		assertEquals(litresCamio*preuBaseLlet,resultat);
 
 	}	
 	
@@ -63,12 +63,43 @@ class CiutatTest {
 		Ciutat ciutat =new Ciutat();
 		
 		// ACT
-		ciutat.arribaCamio(camioFals1);
-		ciutat.arribaCamio(camioFals2);
+		ciutat.getPreuPagarCamio(camioFals1);
+		double resultat = ciutat.getPreuPagarCamio(camioFals2);
 		
 		// ASSERT		
-		assertEquals(litresCamio2*(preuBaseLlet-(int)(litresCamio1/100)*0.1),ciutat.getPreuPagarCamio(camioFals2),0.01F);
+		assertEquals(litresCamio2*(preuBaseLlet-(int)(litresCamio1/100)*0.1),resultat,0.01F);
 
 	}	
+	
+	static Stream<Arguments> createLitres3Camions() {
+	return Stream.of(Arguments.of(900.0,100.00,100.00),Arguments.of(900.0,101.00,100.00),Arguments.of(900.0,202.00,100.00));
+	}
+	
+	@ParameterizedTest
+	@MethodSource("createLitres3Camions")
+	void testPreuCamioAmbLletCiutatPerSobre1000(double litresCamio1,double litresCamio2,double litresCamio3) {
+		
+		double preuBaseLlet=1.1;
+		
+		// ARRANGE		
+		Camio camioFals1 = Mockito.mock(Camio.class);
+		Mockito.when(camioFals1.getLitres()).thenReturn(litresCamio1);
+		
+		Camio camioFals2 = Mockito.mock(Camio.class);
+		Mockito.when(camioFals2.getLitres()).thenReturn(litresCamio2);
+		
+		Camio camioFals3 = Mockito.mock(Camio.class);
+		Mockito.when(camioFals3.getLitres()).thenReturn(litresCamio3);
+		
+		Ciutat ciutat =new Ciutat();
+		
+		// ACT
+		ciutat.getPreuPagarCamio(camioFals1);
+		ciutat.getPreuPagarCamio(camioFals2);
+		double resultat = ciutat.getPreuPagarCamio(camioFals3);
+		
+		// ASSERT		
+		assertEquals(0.0,resultat,0.01F);
+	}
 	
 }
