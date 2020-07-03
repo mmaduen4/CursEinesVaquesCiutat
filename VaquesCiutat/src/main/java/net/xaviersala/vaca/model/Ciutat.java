@@ -12,11 +12,18 @@ public class Ciutat {
 		preuActualLlet=preuBaseLlet;
 	}
 	
-	public void arribaCamio(Camio camio) {
+	public boolean arribaCamio(Camio camio) {
+		
+        if (litresActualsLlet >= 1000)
+        {
+            return false;
+        }   
 		// Nou preu de la llet
 		setPreuActualLlet(); 
 		// Augmenta litres de llet a la ciutat 
 		setLitresActualsLlet(camio);
+		
+		return true;
 	}
 	
 	private void setPreuActualLlet() {							
@@ -38,8 +45,11 @@ public class Ciutat {
 	 * @param camio
 	 * @return
 	 */
-	public double getPreuPagarCamio(Camio camio) {		
-		return camio.getLitres()*getPreuActualLlet();
+	public double getPreuPagarCamio(Camio camio) {	
+		
+		if (arribaCamio(camio)) 		
+			return camio.getLitres()*getPreuActualLlet();
+		return 0.0;
 	}
 	
 	public double getPreuActualLlet() {
