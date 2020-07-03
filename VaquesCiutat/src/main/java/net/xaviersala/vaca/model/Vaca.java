@@ -35,12 +35,14 @@ public class Vaca {
 
     public String crida()
     {
-        String crit = "";
+    	// Modificació recomanda per SonarQube. Use a StringBuilder instead.
+    	StringBuilder crit=new StringBuilder("");
+
         for (int i = 0; i < pes; i += 100)
         {
-            crit += " Mu";
+            crit.append(" Mu");
         }
-        return crit;
+        return crit.toString();
     }
 
     @Override
