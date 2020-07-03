@@ -15,6 +15,7 @@ public class Camio {
 	
     public Camio(double pesMax)
     {
+    	assert(pesMax>0);
         pesMaxim = pesMax;
         pesActual = 0;
         vaques = new ArrayList<Vaca>();
@@ -62,5 +63,13 @@ public class Camio {
     public String toString() {
     	return "Camio max: " + pesMaxim + "(" + pesActual + " - vaques: " + vaques.size();
     }
+    
+	public int litresEsParell()
+	{
+		int parell=1;
+		if (((int) getLitres())%2==1)
+			parell=-1;
+		return parell;
+	}
 
 }
