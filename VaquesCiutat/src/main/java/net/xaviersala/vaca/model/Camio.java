@@ -21,7 +21,7 @@ public class Camio {
     	
         pesMaxim = pesMax;
         pesActual = 0;
-        vaques = new ArrayList<Vaca>();
+        vaques = new ArrayList<>();
     }
     
     
