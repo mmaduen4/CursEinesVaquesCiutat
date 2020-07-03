@@ -30,6 +30,11 @@ public class Ciutat {
 		int reduccioPerCada100=reduccioMultipleCent();				
 		int parell=camio.litresEsParell();	
 		preuActualLlet=preuActualLlet-reduccioPerCada100*0.1+parell*0.1;		
+		
+		// No acabat
+//		int tresRaces=camio.tresRacesDiferents();
+//		int dosHoldstein =camio.dosVacaHoldstein();		
+//		preuActualLlet=preuActualLlet-reduccioPerCada100*0.1+parell*0.1+tresRaces*0.1+dosHoldstein*0.05;					
 	}
 	
 	/**
