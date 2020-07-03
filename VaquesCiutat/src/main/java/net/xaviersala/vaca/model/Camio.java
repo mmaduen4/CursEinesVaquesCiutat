@@ -15,7 +15,10 @@ public class Camio {
 	
     public Camio(double pesMax)
     {
-    	assert(pesMax>0);
+   	
+    	if (pesMax<=0)
+    		throw new AssertionError();
+    	
         pesMaxim = pesMax;
         pesActual = 0;
         vaques = new ArrayList<Vaca>();
