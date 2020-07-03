@@ -26,15 +26,20 @@ public class Ciutat {
 		return true;
 	}
 	
+	/**
+	 * Falta incloure en el preu de la llet  si hi ha tres races diferents al camió o dos vaques són Holdstein.  
+	 * 
+	 *  int tresRaces=camio.tresRacesDiferents();
+	 *  int dosHoldstein =camio.dosVacaHoldstein();		
+	 *  preuActualLlet=preuActualLlet-reduccioPerCada100*0.1+parell*0.1+tresRaces*0.1+dosHoldstein*0.05;
+	 * 
+	 * @param camio
+	 */
 	private void setPreuActualLlet(Camio camio) {							
 		int reduccioPerCada100=reduccioMultipleCent();				
 		int parell=camio.litresEsParell();	
 		preuActualLlet=preuActualLlet-reduccioPerCada100*0.1+parell*0.1;		
-		
-		// No acabat
-//		int tresRaces=camio.tresRacesDiferents();
-//		int dosHoldstein =camio.dosVacaHoldstein();		
-//		preuActualLlet=preuActualLlet-reduccioPerCada100*0.1+parell*0.1+tresRaces*0.1+dosHoldstein*0.05;					
+							
 	}
 	
 	/**
