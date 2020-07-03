@@ -9,7 +9,7 @@ package net.xaviersala.vaca.model;
  */
 public class Raca {
 
-	public static final String desconeguda = "Desconeguda";	
+	public static final String DESCONEGUDA = "Desconeguda";	
     private String nom;    
     /**
      * Cada raça produeix de mitjana una quantitat de llet associada al seu pes.
@@ -19,7 +19,7 @@ public class Raca {
     public Raca(String nom, double litres)
     {
     	if (nom == null || nom.isBlank() || nom.isEmpty()) {
-    		nom = desconeguda;
+    		nom = DESCONEGUDA;
     	}
         this.nom = nom;
         litresPerKg = litres;
