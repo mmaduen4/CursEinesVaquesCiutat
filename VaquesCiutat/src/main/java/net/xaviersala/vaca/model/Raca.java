@@ -8,8 +8,8 @@ package net.xaviersala.vaca.model;
  *
  */
 public class Raca {
-	
-	public static String desconeguda = "Desconeguda";	
+
+	public static final String desconeguda = "Desconeguda";	
     private String nom;    
     /**
      * Cada raça produeix de mitjana una quantitat de llet associada al seu pes.
