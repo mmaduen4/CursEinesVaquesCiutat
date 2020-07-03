@@ -86,7 +86,7 @@ public class Camio {
 	public int dosVacaHoldstein()
 	{
 		// falta condició
-		if (true)
+		if (true&&true)
 			return 1;
 		return 0;
 	}
